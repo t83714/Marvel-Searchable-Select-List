@@ -13,11 +13,12 @@
     "node": ">=8.4.0"
   },
   "scripts": {
-    "start": "node -r @std/esm koa-index.js",
+    "start": "scripts/start.sh",
     "watch": "webpack --progress --colors --watch",
     "watch:min": "PROD_ENV=1 webpack --progress --colors --watch",
     "build": "webpack",
-    "build:min": "PROD_ENV=1 webpack --progress --colors"
+    "build:min": "PROD_ENV=1 webpack --progress --colors",
+    "init": "scripts/install.sh"
   },
   "dependencies": {
     "@std/esm": "^0.12.4",
