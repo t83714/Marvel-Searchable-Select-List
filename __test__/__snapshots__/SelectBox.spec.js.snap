@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`>>>SearchBox --- Snapshot +++capturing Snapshot of SearchBox 1`] = `
+<form
+  className="select-box form-inline my-2 my-lg-0"
+>
+  <div />
+  <input
+    aria-label="Search"
+    className="form-control mr-sm-2"
+    onChange={[Function]}
+    placeholder="Search"
+    type="text"
+  />
+</form>
+`;

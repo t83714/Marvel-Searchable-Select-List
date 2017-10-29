@@ -6,14 +6,14 @@ class MainView extends React.Component {
     render() {
         return (
             <main role="main">
-                <MediaQuery query="(max-width: 576px)">
-                <div className="container">
+            <MediaQuery query="(max-width: 576px)">
+                    <div className="container">
                         <div className="row">
                             <div className="col-md-12">
                                 <SearchBox />
                           </div>
-                      </div>
-              </div>
+                  </div>
+                    </div>
                 </MediaQuery>
           </main>
         );

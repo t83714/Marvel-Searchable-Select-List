@@ -2,6 +2,19 @@ import { call, put } from "redux-saga/effects";
 import { optionDataUpdate, loadingIconStatusUpdate } from "../actions";
 
 function requestApi(input) {
+/*
+    return [
+          {
+            "id": "1",
+            "name": "Iron Man",
+            "description": "Wounded, captured and forced to build a weapon by his enemies, billionaire industrialist Tony Stark instead created an advanced suit of armor to save his life and escape captivity. Now with a new outlook on life, Tony uses his money and intelligence to make the world a safer, better place as Iron Man.",
+            "thumbnail": {
+              "path": "http://i.annihil.us/u/prod/marvel/i/mg/9/c0/527bb7b37ff55",
+              "extension": "jpg"
+            }
+          }
+        ];
+*/
     // eslint-disable-next-line no-undef
     if (jQuery.trim(input) === "") return [];
     // eslint-disable-next-line no-undef
@@ -25,8 +38,8 @@ export default function* loadOptions({ payload }) {
         options = [];
     }
     try {
-        yield put(loadingIconStatusUpdate(false));
         yield put(optionDataUpdate(options));
+        yield put(loadingIconStatusUpdate(false));
     } catch (e) {
         // eslint-disable-next-line no-alert
         alert(`Error: ${e.message}`);
