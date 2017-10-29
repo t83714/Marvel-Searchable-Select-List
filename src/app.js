@@ -36,8 +36,7 @@ class App extends React.Component {
     }
 
     render() {
-        return (<Provider store={store}><div><NavBar/><MainView /></div>
-        </Provider>);
+        return (<Provider store={store}><div><NavBar /><MainView /></div></Provider>);
     }
 }
 

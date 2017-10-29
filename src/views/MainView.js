@@ -1,21 +1,21 @@
 import React from "react";
-import MediaQuery from 'react-responsive';
-import SearchBox from './SearchBox';
+import MediaQuery from "react-responsive";
+import SearchBox from "./SearchBox";
 
 class MainView extends React.Component {
-    render(){
+    render() {
         return (
             <main role="main">
                 <MediaQuery query="(max-width: 576px)">
-                    <div  className="container">
+                <div className="container">
                         <div className="row">
                             <div className="col-md-12">
-                            <SearchBox />
-                            </div>
-                        </div>
-                    </div>
+                                <SearchBox />
+                          </div>
+                      </div>
+              </div>
                 </MediaQuery>
-            </main>
+          </main>
         );
     }
 }

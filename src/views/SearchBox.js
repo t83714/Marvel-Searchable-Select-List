@@ -1,21 +1,41 @@
 import React from "react";
+import { connect } from "react-redux";
+import debounce from "lodash/debounce";
+import { userInputChange } from "../actions/index";
 
-const styles={
-    loadingIcon:{
-        right: "45px",
-        position: "absolute"
+
+export class SearchBox extends React.Component {
+    constructor(props) {
+        super(props);
+        this.debouncedDispatch = debounce(textInput => this.props.dispatch(userInputChange(textInput)), 500);
     }
-};
 
-class SearchBox extends React.Component {
-    render(){
+    // Avoid pass event to debounced function as event object may be recycled by React later
+    onUserInputChange(textInput) {
+        this.debouncedDispatch(textInput);
+    }
+
+    render() {
         return (
             <form className="select-box form-inline my-2 my-lg-0">
-                <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" />
-                <img src="loading.gif" className="loading-icon" width={24} height={24} />
-            </form>
+            <input
+                    className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"
+                    onChange={e => this.onUserInputChange(e.target.value)}
+              />
+                {
+                    this.props.isLoadingIconShown ? (
+                        <img src="loading.gif" className="loading-icon" width={24} height={24} />
+                    ) : null
+                }
+
+          </form>
         );
     }
 }
 
-export default SearchBox;
+const mapStateToProps = state => ({
+    options: state.options,
+    isLoadingIconShown: state.isLoadingIconShown,
+});
+
+export default connect(mapStateToProps)(SearchBox);
