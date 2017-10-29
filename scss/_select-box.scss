@@ -1,0 +1,12 @@
+@include media-breakpoint-up(xs) {
+    .select-box .loading-icon{
+        position: absolute;
+        right: 45px;
+    }
+}
+@include media-breakpoint-down(xs) {
+    .select-box .loading-icon{
+        position: absolute;
+        right: 28px;
+    }
+}
